@@ -13,7 +13,8 @@ pipeline {
                     become: true,
                     becomeUser: 'root', // Utiliser root pour l'exécution
                     playbook: 'playbook.yml',
-                    inventory: 'hosts.yml'
+                    //inventory: 'hosts.yml'
+                    inventory: '/etc/ansible/hosts'
                 )
             }
         }
