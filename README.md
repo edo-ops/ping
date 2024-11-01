@@ -1,3 +1,5 @@
 Voici 1 playbook ansible ainsi qu'un fichier host.
+ansible et jenkins sont installés et configurés sur la même machine
 
-dans jenkins ouvrir un projet, le nommé et choisir pipeline
+Dans jenkins ouvrir un projet, le nommé et choisir pipeline
+ajouter dans le code du pipeline le contenu du fichier joint
