@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git url: 'https://github.com/edo-ops/ping.git', branch: 'main'
+            }
+        }
+        stage('Run Ansible Playbook') {
+            steps {
+                ansiblePlaybook (
+                    colorized: true,
+                    become: true,
+                    becomeUser: 'root', // Utiliser root pour l'exécution
+                    playbook: 'playbook.yml',
+                    inventory: 'hosts.yml'
+                )
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Playbook Ansible exécuté avec succès !'
+        }
+        failure {
+            echo 'Échec de l\'exécution du playbook Ansible.'
+        }
+    }
+}
